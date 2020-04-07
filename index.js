@@ -1,29 +1,26 @@
-import React, { Component } from 'react';
-import { render } from 'react-dom';
-import Hello from './Hello';
-import './style.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './src/index.css';
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: 'Steve'
-    };
-  }
-
-  render() {
-    return (
-      <div>
-        <Hello name={this.state.name} />
-        <p>
-          Start editing to see some magic happen :)
-        </p>
-        <p>
-          Writing something here too.
-        </p>
-      </div>
-    );
-  }
+function Hi({firstname,lastname}) {
+  return (
+    <div>
+      <h2> Example of a header </h2>
+      
+      <strong>Hello {firstname} {lastname}</strong>
+    </div>
+  )
 }
 
-render(<App />, document.getElementById('root'));
+function MediaCard({title,body,imageUrl}){
+  return(
+   <div>
+      <h2> {title}</h2>
+      <p> {body} </p>
+      <img src={imageUrl}/>
+    </div>
+  )
+}
+
+ReactDOM.render(<Hi firstname="Steve" lastname="Danby"/>, document.querySelector('#root'));
+ReactDOM.render(<MediaCard title="Steve" body="Danby" imageUrl=/>, document.querySelector('#root'));
